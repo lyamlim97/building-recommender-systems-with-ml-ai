@@ -33,7 +33,7 @@ class RecommenderMetrics:
         for leftOut in leftOutPredictions:
             userID = leftOut[0]
             leftOutMovieID = leftOut[1]
-            # check if it is in the predicted top 10 for this user
+            # check if it is in the predicted top N for this user
             hit = False
             for movieID, predictedRating in topNPredicted[int(userID)]:
                 if (int(leftOutMovieID) == int(movieID)):
@@ -55,7 +55,7 @@ class RecommenderMetrics:
         for userID, leftOutMovieID, actualRating, estimatedRating, _ in leftOutPredictions:
             # only look at the ability to recommend things the users actually liked
             if (actualRating >= ratingCutoff):
-                # check if it is in the predicted top 10 for this user
+                # check if it is in the predicted top N for this user
                 hit = False
                 for movieID, predictedRating in topNPredicted[int(userID)]:
                     if (int(leftOutMovieID) == movieID):
@@ -75,7 +75,7 @@ class RecommenderMetrics:
 
         # for each left-out rating
         for userID, leftOutMovieID, actualRating, estimatedRating, _ in leftOutPredictions:
-            # check if it is in the predicted top 10 for this user
+            # check if it is in the predicted top N for this user
             hit = False
             for movieID, predictedRating in topNPredicted[int(userID)]:
                 if (int(leftOutMovieID) == movieID):
@@ -96,7 +96,7 @@ class RecommenderMetrics:
 
         # for each left-out rating
         for userID, leftOutMovieID, actualRating, estimatedRating, _ in leftOutPredictions:
-            # Is it in the predicted top N for this user?
+            # check if it is in the predicted top N for this user
             hitRank = 0
             rank = 0
             for movieID, predictedRating in topNPredicted[int(userID)]:
