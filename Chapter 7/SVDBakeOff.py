@@ -37,6 +37,6 @@ evaluator.AddAlgorithm(SVDPlusPlus, "SVD++")
 Random = NormalPredictor()
 evaluator.AddAlgorithm(Random, "Random")
 
-evaluator.Evaluate(False) 
+evaluator.Evaluate(False)
 
 evaluator.SampleTopNRecs(ml)
