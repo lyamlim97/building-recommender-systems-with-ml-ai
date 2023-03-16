@@ -9,9 +9,9 @@ import numpy as np
 
 def LoadMovieLensData():
     ml = MovieLens()
-    print("Loading movie ratings...")
+    print('Loading movie ratings...')
     data = ml.loadMovieLensLatestSmall()
-    print("\nComputing movie popularity ranks so we can measure novelty later...")
+    print('\nComputing movie popularity ranks so we can measure novelty later...')
     rankings = ml.getPopularityRanks()
     return (data, rankings)
 
@@ -27,11 +27,11 @@ evaluator = Evaluator(evaluationData, rankings)
 
 # add in an SVD recommender
 SVDAlgorithm = SVD(random_state=10)
-evaluator.AddAlgorithm(SVDAlgorithm, "SVD")
+evaluator.AddAlgorithm(SVDAlgorithm, 'SVD')
 
 # add in a random recommender
 Random = NormalPredictor()
-evaluator.AddAlgorithm(Random, "Random")
+evaluator.AddAlgorithm(Random, 'Random')
 
 # compare algorithms
 evaluator.Evaluate(True)

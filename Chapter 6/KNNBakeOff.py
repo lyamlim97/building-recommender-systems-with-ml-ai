@@ -9,9 +9,9 @@ import numpy as np
 
 def LoadMovieLensData():
     ml = MovieLens()
-    print("Loading movie ratings...")
+    print('Loading movie ratings...')
     data = ml.loadMovieLensLatestSmall()
-    print("\nComputing movie popularity ranks so we can measure novelty later...")
+    print('\nComputing movie popularity ranks so we can measure novelty later...')
     rankings = ml.getPopularityRanks()
     return (ml, data, rankings)
 
@@ -27,15 +27,15 @@ evaluator = Evaluator(evaluationData, rankings)
 
 # user-based KNN
 UserKNN = KNNBasic(sim_options={'name': 'cosine', 'user_based': True})
-evaluator.AddAlgorithm(UserKNN, "User KNN")
+evaluator.AddAlgorithm(UserKNN, 'User KNN')
 
 # item-based KNN
 ItemKNN = KNNBasic(sim_options={'name': 'cosine', 'user_based': False})
-evaluator.AddAlgorithm(ItemKNN, "Item KNN")
+evaluator.AddAlgorithm(ItemKNN, 'Item KNN')
 
 # random recommendations
 Random = NormalPredictor()
-evaluator.AddAlgorithm(Random, "Random")
+evaluator.AddAlgorithm(Random, 'Random')
 
 evaluator.Evaluate(False)
 

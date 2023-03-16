@@ -10,9 +10,9 @@ from EvaluationData import EvaluationData
 
 def LoadMovieLensData():
     ml = MovieLens()
-    print("Loading movie ratings...")
+    print('Loading movie ratings...')
     data = ml.loadMovieLensLatestSmall()
-    print("\nComputing movie popularity ranks so we can measure novelty later...")
+    print('\nComputing movie popularity ranks so we can measure novelty later...')
     rankings = ml.getPopularityRanks()
     return (ml, data, rankings)
 
@@ -99,4 +99,4 @@ for uiid in range(trainSet.n_users):
                 break
 
 # measure
-print("HR", RecommenderMetrics.HitRate(topN, leftOutTestSet))
+print('HR', RecommenderMetrics.HitRate(topN, leftOutTestSet))
